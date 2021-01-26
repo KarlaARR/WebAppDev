@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+
+    </h:head>
+    <h:body>
+        <div class="container">
+
+            <h:form id="formularioInicio">
+                <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+                    <a class="navbar-brand" href="principal.xhtml">
+                        <img src="/resources/imagenes/logo.png" width="30" height="30" alt="Imagen" loading="lazy"/>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div  class="collapse navbar-collapse" id="navbarText">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a href="../principal.xhtml" class="nav-link">
+                                    Inicio
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <h:commandLink action="/categoria/listaCategorias?faces-redirect=true" class="nav-link">Categorias</h:commandLink>
+                            </li>
+                            <li class="nav-item">
+                                <h:commandLink action="/producto/listaProductos?faces-redirect=true" class="nav-link">Productos</h:commandLink>
+                            </li>
+                            <li class="nav-item">
+                                <h:commandLink action="/usuario/listaUsuarios?faces-redirect=true" class="nav-link">Usuarios</h:commandLink>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <a href="LoginServlet?accion=cerrarSesion" class="btn btn-outline-primary">Salir</a>
+                    </div>
+                </nav>
+            </h:form>
+            <br></br>
+            <div class="card border-primary">
+                <div class="card-body text-primary">
+                    <h:panelGrid>
+                        <f:view>
+                            <h:form id="frmCorreo">
+                                <h:panelGrid columns="3" class="form-group row">
+
+                                    <h:outputLabel
+                                        value="Destinatario"
+                                        id="lblDestinatario"/>
+                                    <h:inputText
+                                        id="txtDestinatario"
+                                        value="proyectoWAD@gmail.com"
+                                        class="form-control"
+                                        readonly="true"/>
+                                    <h:message for="txtDestinatario"/>
+                                    
+                                    <h:outputLabel
+                                        value="Asunto"
+                                        id="lblAsunto"/>
+                                    <h:inputText
+                                        id="txtAsunto"
+                                        value="#{correoMB.asunto}"
+                                        class="form-control"/>
+                                    <h:message for="txtAsunto"/>
+                                    
+                                    <h:outputLabel
+                                        value="Mensaje"
+                                        id="lblMensaje"/>
+                                    <h:inputText
+                                        id="txtMensaje"
+                                        value="#{correoMB.mensaje}"
+                                        class="form-control"/>
+                                    <h:message for="txtCorreo"/>
+                                    
+                                    <h:commandButton
+                                        value="Enviar"
+                                        action="#{correoMB.enviar()}"
+                                        class="btn btn-outline-success"/>
+                                    <h:commandButton
+                                        value="Cancelar"
+                                        action="#{correoMB.back()}"
+                                        class="btn btn-outline-danger"/>
+                                </h:panelGrid>
+                            </h:form>
+                        </f:view>
+                    </h:panelGrid>
+                </div>
+            </div>
+        </div>
+    </h:body>
+</html>
+

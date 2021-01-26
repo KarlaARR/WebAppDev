@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Facelet Title</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"/>
+
+    </h:head>
+    <h:body>
+        <div class="container col-lg-3" 
+             style="background-color: #e3f2fd;
+             border-radius: 10px;
+             padding: 25px;
+             margin-top: 25px;">
+            <h:form>
+                <div class="form-group text-center">
+                    <p><strong>Credenciales invalidas</strong></p>
+                </div>
+                <h:commandButton action="#{loginMB.inicio()}" value="Aceptar" class="btn btn-outline-primary"/>
+            </h:form>
+        </div>
+    </h:body>
+</html>
+
